@@ -50,9 +50,32 @@ function calcular_avisar(numero, callback) {
 //mostrar
 calcular_avisar(dato, (mensaje) => {
     console.log(mensaje);
-    // También podrías usar alert(mensaje);
 });
 
 //FUNCION 3  
 
-calculer_dependiendo(numero,callback, callbackError)
+function calcular_dependiendo(numero,callback, callbackError){
+    let sumaTotal = 0;
+
+    for (let i = 1; i <= numero; i++) {
+        let sumaParcial = 0;
+        for (let j = 1; j <= i; j++) {
+            sumaParcial += j;
+        }
+        sumaTotal += sumaParcial;
+    }
+
+
+    if (sumaTotal < 1000) {
+        callback(`Las sumatorias sucesivas de ${numero} es ${sumaTotal}`);
+    } else {
+        callbackError(`El valor obtenido sobrepasa el objetivo de la función. Resultado = ${sumaTotal}`);
+    }
+}
+
+
+calcular_dependiendo(
+    Number(dato),
+    (mensaje) => console.log(mensaje),
+    (mensajeError) => console.log(mensajeError)
+);
