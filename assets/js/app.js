@@ -1,23 +1,34 @@
-//FUNCION 1
-// fx validar , muestra un prompt ( alerta con metodo promt) que solicite al usuario ingresar un numeo
-let dato = prompt("ingrese un Número:");
+// Funcion 1  validar , muestra un prompt que solicite al usuario ingresar un numeo
+let dato = prompt("Ingrese un Número:");
 
 
-//2- una vez ingresado validar si efectivamente es un numero , yo creo que con un if-else
-    if (!isNaN(dato)){
-        //si es numero
-    }else {
-        error
-    //3  llamar al call back para mostrar el mensaje
-    //para temporizar la ejecucion del callback
-    setTimeout(() => {
-        callback(resultado);
-    },5000); // creo que esos 5000 significan 5 segundos
+function validar_numero(callback) {
+   let resultado;
+   if( /^\d+$/.test(dato) ){
+
+       resultado = `${dato} valor ingresado exitosamente`;
+   }
+    else{
+        { /^[a-zA-Z]+$/.test(dato)}
+        resultado = `Error el valor ${dato}  no es un número`
     }
-//  msj A  correcto si el dato es valido, B error si ingresaron cualquier cosa menos numero
+
+    setTimeout(() => {
+     callback(resultado);
+  }, 3000);
+}
+ validar_numero((mensaje) => {
+    console.log(mensaje);
+
+ })
 
 
-// FUNCION 2 function calcular_y_avisar_despues(numero,callback);
+// FUNCION 2 */
+ function calcular_avisar(numero,callback);
+    let sumar;
+    if(/^\d*[13579]$/.test(sumar)){
+        sumar
+    }
 
 /* 1-calcular sumatoria de numeros impares entre 1 y numero
 2- esperar 5 segundos y luego ejecutar callback
