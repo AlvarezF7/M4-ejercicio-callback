@@ -23,16 +23,36 @@ function validar_numero(callback) {
  })
 
 
-// FUNCION 2 */
- function calcular_avisar(numero,callback);
-    let sumar;
-    if(/^\d*[13579]$/.test(sumar)){
-        sumar
+// FUNCION 2  sumatoria
+
+function calcular_avisar(numero, callback) {
+    // Validar que sea un número positivo
+    if (!/^\d+$/.test(numero)) {
+        callback("Error: debes ingresar un número válido");
+        return;
     }
 
-/* 1-calcular sumatoria de numeros impares entre 1 y numero
-2- esperar 5 segundos y luego ejecutar callback
-3- callback debe mostrar el mensaje " el valor dela sumatoria es N, este resultado 
-se obtuvo hace 5 segundos"*/
+    numero = Number(numero);
+    let suma = 0;
 
-/*FUNCION 3  calcualr_y_avisar_dependiendo(numero,callback, callbackError)*/
+  
+    for (let i = 1; i <= numero; i++) {
+        if (i % 2 !== 0) { // impar
+            suma += i;
+        }
+    }
+
+    setTimeout(() => {
+        callback(`El valor de la sumatoria es ${suma}. Este resultado se obtuvo hace 5 segundos`);
+    }, 5000);
+}
+
+//mostrar
+calcular_avisar(dato, (mensaje) => {
+    console.log(mensaje);
+    // También podrías usar alert(mensaje);
+});
+
+//FUNCION 3  
+
+calculer_dependiendo(numero,callback, callbackError)
